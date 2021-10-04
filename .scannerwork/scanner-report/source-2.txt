@@ -1,0 +1,62 @@
+const path = require('path');
+const express = require('express');
+
+//console.log(__dirname);
+//console.log(__filename);
+//console.log(path.join(__dirname, '../public'));
+
+const app = express();
+const publicDirectoryPath = path.join(__dirname, '../public')
+
+app.use(express.static(publicDirectoryPath));//to customize server
+
+/*app.get('', (req, res) => {
+    //res.send('Hello express!')
+    res.send('<h1>Weather</h1>')
+});*/
+
+/*app.get('/help', (req, res) => {
+    //res.send('Help page')
+    //res.send({
+    //   name: 'Andrew',
+    //   age: 27 })
+    res.send([{
+        name: 'Andrew'
+    }, {
+        name: 'Sarah'
+    }]); //will take some time to load so u can startup cmd again
+});//localhost:3000/help to display txt
+
+app.get('/about', (req, res) => {
+    //res.send('About')
+    res.send('<h1>About</h1>')
+});*/
+
+app.get('/weather', (req, res) => {
+    //res.send('Your weather')
+    res.send({//object
+        forecast: 'It is snowing',
+        location: 'Philadelphia'
+    })
+});
+
+app.listen(3000, () => {
+    console.log('Server is up on port 3000.');
+})//wont stop need to shut down; while running can print on google chrome at localhost:3000>Hello express!
+
+//Goal: Setup two new routes
+//1.Setup an about route and render a page title
+//2.Setup a weather route and render a page title
+//3.Test your work by visiting both in the browser
+
+////Goal: Update routes
+//1.Setup about route to render a title with HTML
+//2.Setup a weather route to send back JSON
+//  -Object with forecast and location strings
+//3.Test your work by visiting both in the browser
+
+//Goal: Create 2 more HTML files
+//1.Create a html page for about with "About" title
+//2.Create a html page for help with "Help" title
+//3.Remove the old route handlers for both
+//4.Visit both in the browser to test your work
