@@ -1,5 +1,3 @@
-
-
 //fetch('http://puzzle.mead.io/puzzle').then((response) => {
 //    response.json().then((data) => {
 //        console.log(data)
@@ -25,7 +23,7 @@ weatherForm.addEventListener('submit', (e) => {
     messageOne.textContent = 'Loading...'
     messageTwo.textContent = ''
     //console.log(location)
-    fetch('http://localhost:3000/weather?address=' + location).then((response) => {
+    fetch('/weather?address=' + location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 //console.log(data.error)
@@ -51,3 +49,8 @@ weatherForm.addEventListener('submit', (e) => {
 //3.If error, render error
 //4.If no error, render location and forecast
 //5.Test your work! Search for errors and for valid locations
+
+//Goal: Put the notes app under version control
+//1.Initialize a new repo in project directory
+//2.Ignore node_modules
+//3.Commit all files to the repository

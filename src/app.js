@@ -9,6 +9,7 @@ const forecast = require('./utils/forecast');
 //console.log(path.join(__dirname, '../public'));
 
 const app = express();
+const port = process.env.PORT || 3000 //env is environment variables
 
 //Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -130,8 +131,8 @@ app.get('*', (req, res) => {// this * is wildcard character
     })
 });
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.');
+app.listen(port, () => {
+    console.log('Server is up on port ' + port);
 })//wont stop need to shut down; while running can print on google chrome at localhost:3000>Hello express!
 
 //Goal: Setup two new routes
